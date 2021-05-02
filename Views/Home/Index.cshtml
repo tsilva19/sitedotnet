@@ -1,0 +1,114 @@
+﻿@model Interesse
+@{
+    ViewData["Title"] = "Hotsite";
+}
+
+<section class="sobre">
+    <div class="container">
+    <h1>Iniciativa Saúde da Cidade</h1>
+    <div class="row">
+        <div class="col-md-9 desc">
+            <p>
+                Texto sobre vida saudável: Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit.
+            </p>
+            <p>
+                Texto sobre vida iniciativa: Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit.
+            </p>
+        </div>
+        <div class="col-md-3">
+                <img src="~/image/logo.png" class="img-fluid" />
+        </div>
+    </div>
+    
+</div>
+</section>
+
+<section class="contato">
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-3">
+        <form class="formClass" id="formContato" action="/Home/Cadastrar" method="POST">
+            <h2>Entre em contato!</h2>
+            <p>Nos mande uma mensagem e fique por dentro de nossos eventos</p></h1>    
+                
+            <div class="form-group">
+                <label asp-for="Nome">Nome:</label>
+                <input asp-for="Nome" class="form-control form-control-lg" placeholder="Seu Nome" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email:</label>
+                <input asp-for="Email" class="form-control form-control-lg" placeholder="seu_email@email.com" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Mensagem">Mensagem (opcional):</label>
+                <textarea class="form-control form-control-lg" asp-for="Mensagem"></textarea>
+            </div>
+            <div class="form-group">
+             <input data-toggle="modal" data-target="#modalSucesso" type="submit"  class="btn btn-primary btn-block" value="Enviar" />
+             <!--  <button data-toggle="modal" data-target="#modalSucesso">Modal</button> -->
+           </div>
+            
+            </form>
+        </div>
+            
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-img">
+                    <img src= "~/image/figura0.png" class="img-fluid">
+                </div>
+        
+                <div class="card-footer">
+                    <a href="" class="card-link" data-toggle="modal" data-target="#modalAgenda">Agenda</a>
+                </div>
+            
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-img">
+                    <img src= "~/image/figura1.png" class="img-fluid">
+                </div>
+        
+                
+                <div class="card-footer">
+                    <a href="" class="card-link" data-toggle="modal" data-target="#modalDicas">Dicas de vida saudável</a>
+                </div>
+            
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-img">
+                    <img src= "~/image/figura2.png" class="img-fluid">
+                </div>
+        
+               
+                <div class="card-footer">
+                    <a href="" class="card-link" data-toggle="modal" data-target="#modalApoiadores">Apoiadores</a>
+                </div>
+            
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</section>
+
+@* <script>
+    const formContato = document.querySelector("#formContato")
+    formContato.addEventListener("submit", function(event){
+        const confirmation = confirm("Desejar Enviar a mensagem?")
+        if(!confirmation){
+            event.preventDefault()
+        }
+    })
+</script> *@
+
+<partial name="_ModalAgenda" />
+<partial name="_ModalApoiadores" />
+<partial name="_ModalDicas" />
+
+  <partial name="_ModalSucesso" />
